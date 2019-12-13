@@ -2,9 +2,13 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Link
+  Switch
 } from "react-router-dom";
+
+import Home from "./Home";
+import About from "./About";
+import BeerRoulete from "./BeerRoulete";
+import Sidebar from "../components/Sidebar";
 
 function App() {
   return (
@@ -14,29 +18,17 @@ function App() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </header>
       <Router>
+        <Sidebar />
         <React.Fragment>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
           <Switch>
-            <Route path="/about">
-              About component here...
+            <Route exact path="/about">
+              <About />
             </Route>
-            <Route path="/users">
-              Users component here...
+            <Route exact path="/beer-roulete">
+              <BeerRoulete />
             </Route>
-            <Route path="/">
-              Home
+            <Route exact path="/">
+              <Home />
             </Route>
           </Switch>
         </React.Fragment>
