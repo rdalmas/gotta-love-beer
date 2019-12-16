@@ -8,7 +8,7 @@ const defaultState = {
   error: ""
 };
 
-const config = handleActions(
+const beers = handleActions(
   {
     [a.BEERS_LOADING]: state => ({
       ...state,
@@ -28,4 +28,4 @@ const config = handleActions(
   defaultState
 );
 
-export default config;
+export default beers;

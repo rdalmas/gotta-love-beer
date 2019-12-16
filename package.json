@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.8"
+    "nock": "^11.7.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4"
   }
 }

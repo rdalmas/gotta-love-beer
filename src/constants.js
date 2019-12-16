@@ -5,7 +5,7 @@ export const actions = {
 };
 
 export const endpoints = {
-  BEERS: "BEERS"
+  BEERS: "/BEERS"
 };
 
 export default {
