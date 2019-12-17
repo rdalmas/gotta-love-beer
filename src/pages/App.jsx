@@ -4,13 +4,14 @@ import {
   Route,
   Switch
 } from "react-router-dom";
+import Container from '@material-ui/core/Container';
 
 import { Home, About, BeerRoulete, BeerList } from "../pages";
 import { Sidebar } from "../components";
 
 function App() {
   return (
-    <React.Fragment>
+    <Container fixed>
       <header className="App-header">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -34,7 +35,7 @@ function App() {
           </Switch>
         </React.Fragment>
       </Router>
-    </React.Fragment>
+    </Container>
   );
 }
 
