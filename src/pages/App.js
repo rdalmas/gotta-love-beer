@@ -9,6 +9,7 @@ import Home from "./Home";
 import About from "./About";
 import BeerRoulete from "./BeerRoulete";
 import Sidebar from "../components/Sidebar";
+import BeerList from "./BeerList";
 
 function App() {
   return (
@@ -27,9 +28,12 @@ function App() {
             <Route exact path="/beer-roulete">
               <BeerRoulete />
             </Route>
+            <Route exact path="/beer-list">
+              <BeerList />
+            </Route>
             <Route exact path="/">
               <Home />
-            </Route>
+            </Route>          
           </Switch>
         </React.Fragment>
       </Router>

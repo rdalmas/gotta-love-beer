@@ -4,11 +4,14 @@ export const actions = {
   BEERS_FAILED: "BEERS_FAILED"
 };
 
+export const BEER_HOST = "https://api.punkapi.com/v2";
+
 export const endpoints = {
-  BEERS: "/BEERS"
+  BEERS: "/beers"
 };
 
 export default {
   actions,
-  endpoints
+  endpoints,
+  BEER_HOST
 };
