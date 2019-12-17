@@ -5,11 +5,8 @@ import {
   Switch
 } from "react-router-dom";
 
-import Home from "./Home";
-import About from "./About";
-import BeerRoulete from "./BeerRoulete";
-import Sidebar from "../components/Sidebar";
-import BeerList from "./BeerList";
+import { Home, About, BeerRoulete, BeerList } from "../pages";
+import { Sidebar } from "../components";
 
 function App() {
   return (
