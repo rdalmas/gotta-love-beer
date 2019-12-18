@@ -1,15 +1,40 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from "react-router-dom";
 import Container from '@material-ui/core/Container';
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
 import { Home, About, BeerRoulete, BeerList } from "../pages";
-import { Sidebar } from "../components";
 
 function App() {
+  // for new tabs, just add it here. :)
+  const allTabs = [
+    {
+      label: "Home",
+      url: "/",
+      Component: Home
+    },
+    {
+      label: "Beer List",
+      url: "/beer-list",
+      Component: BeerList
+    },
+    {
+      label: "Beer Roulete",
+      url: "/beer-roulete",
+      Component: BeerRoulete
+    },
+    {
+      label: "About",
+      url: "/about",
+      Component: About
+    }
+  ];
   return (
     <Container fixed>
       <header className="App-header">
@@ -17,23 +42,29 @@ function App() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       </header>
       <Router>
-        <Sidebar />
-        <React.Fragment>
-          <Switch>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/beer-roulete">
-              <BeerRoulete />
-            </Route>
-            <Route exact path="/beer-list">
-              <BeerList />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>          
-          </Switch>
-        </React.Fragment>
+        <Route
+          path="/"
+          render={({ location }) => (
+            <Fragment>
+              <Tabs 
+                value={location.pathname}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="scrollable"
+                scrollButtons="auto"
+              >
+                { allTabs.map(tab => (
+                  <Tab key={tab.label} label={tab.label} value={tab.url} component={Link} to={tab.url} />
+                ))}
+              </Tabs>
+              <Switch>
+                { allTabs.map(tab => (
+                  <Route exact key={tab.label} path={tab.url} render={() => <tab.Component />} />
+                ))}
+              </Switch>
+            </Fragment>
+          )}
+        />
       </Router>
     </Container>
   );

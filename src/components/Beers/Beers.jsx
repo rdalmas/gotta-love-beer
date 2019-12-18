@@ -21,7 +21,7 @@ const Beers = ({ beers }) => {
         </GridList>
       </GridRoot>
     )
-  }  
+  }
   return (<div>No beers...</div>)
 }
 
