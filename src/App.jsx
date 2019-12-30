@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,8 +8,16 @@ import {
 import Container from '@material-ui/core/Container';
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
 
-import { Home, About, BeerRoulete, BeerList } from "../pages";
+import { Home, About, BeerRoulete, BeerList } from "./pages";
+
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+  },
+});
 
 function App() {
   // for new tabs, just add it here. :)
@@ -35,6 +43,7 @@ function App() {
       Component: About
     }
   ];
+  const classes = useStyles();
   return (
     <Container fixed>
       <header className="App-header">
@@ -45,13 +54,12 @@ function App() {
         <Route
           path="/"
           render={({ location }) => (
-            <Fragment>
+            <Paper className={classes.root}>
               <Tabs 
                 value={location.pathname}
                 indicatorColor="primary"
                 textColor="primary"
-                variant="scrollable"
-                scrollButtons="auto"
+                centered
               >
                 { allTabs.map(tab => (
                   <Tab key={tab.label} label={tab.label} value={tab.url} component={Link} to={tab.url} />
@@ -62,7 +70,7 @@ function App() {
                   <Route exact key={tab.label} path={tab.url} render={() => <tab.Component />} />
                 ))}
               </Switch>
-            </Fragment>
+            </Paper>
           )}
         />
       </Router>
